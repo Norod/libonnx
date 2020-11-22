@@ -10,7 +10,14 @@ extern "C" {
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
+
+#if defined(__MACH__)
+#include <stdlib.h>
+#else
 #include <malloc.h>
+#endif
+
+
 #include <float.h>
 #include <math.h>
 #include <list.h>

@@ -27,6 +27,18 @@
 
 #include <onnx.h>
 
+#if defined(__MACH__)
+
+#include <stdlib.h>
+
+void *memalign(size_t alignment, size_t size) {
+    void* return_addr = NULL;
+    posix_memalign(&return_addr, alignment, size);
+    return return_addr;
+}
+
+#endif
+
 #define ONNX_LOG(...)	printf(__VA_ARGS__)
 
 static void * resolver_default_create(void)

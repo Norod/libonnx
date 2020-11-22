@@ -1,5 +1,10 @@
 #include <onnx.h>
 
+#if defined(__MACH__)
+#define isinff isinf
+#define isnanf isnan
+#endif
+
 static int IsNaN_init(struct onnx_node_t * n)
 {
 	if((n->ninput == 1) && (n->noutput == 1))

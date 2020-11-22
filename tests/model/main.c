@@ -2,7 +2,13 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+
+#if defined(__MACH__)
+#include <stdlib.h>
+#else
 #include <malloc.h>
+#endif
+
 #include <unistd.h>
 #include <dirent.h>
 #include <libgen.h>

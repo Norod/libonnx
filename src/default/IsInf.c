@@ -1,5 +1,10 @@
 #include <onnx.h>
 
+#if defined(__MACH__)
+#define isinff isinf
+#define isnanf isnan
+#endif
+
 struct operator_pdata_t {
 	int detect_negative;
 	int detect_positive;
